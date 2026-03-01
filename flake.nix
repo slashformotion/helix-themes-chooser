@@ -1,5 +1,5 @@
 {
-  description = "";
+  description = "Helix Themes Chooser - Preview and compare Helix editor themes";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";

@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/slashformotion/helix-theme-choser/internal"
+	"github.com/slashformotion/helix-themes-chooser/internal"
 )
 
 func main() {

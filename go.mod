@@ -1,6 +1,6 @@
-module github.com/slashformotion/helix-theme-choser
+module github.com/slashformotion/helix-themes-chooser
 
-go 1.24.5
+go 1.25
 
 require github.com/spf13/afero v1.14.0
 
