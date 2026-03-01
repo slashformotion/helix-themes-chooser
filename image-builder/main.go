@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"sync"
 
+	"github.com/slashformotion/helix-themes-chooser/internal"
 	"github.com/spf13/afero"
-	"github.com/slashformotion/helix-theme-choser/internal"
 )
 
 type Job struct {
@@ -29,7 +29,7 @@ type Result struct {
 	Err     error
 }
 
-func worker(id int, fs afero.Fs, jobs <-chan Job, results chan<- Result, wg *sync.WaitGroup) {
+func worker(fs afero.Fs, jobs <-chan Job, results chan<- Result, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for job := range jobs {
 		err := fs.MkdirAll(filepath.Dir(job.OutputPath), os.ModePerm)
@@ -96,9 +96,9 @@ func main() {
 
 	// Start 4 worker goroutines
 	numWorkers := 4
-	for i := 0; i < numWorkers; i++ {
+	for range numWorkers {
 		wg.Add(1)
-		go worker(i, fs, jobs, results, &wg)
+		go worker(fs, jobs, results, &wg)
 	}
 
 	// Send jobs
