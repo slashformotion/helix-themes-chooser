@@ -36,3 +36,4 @@ jobs:
           branch: update-flake
           commit-message: "chore: update flake.lock"
           labels: dependencies
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
