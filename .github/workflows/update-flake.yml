@@ -1,6 +1,7 @@
 name: Update Flake
 
-permissions: 
+permissions:
+  contents: write
   pull-requests: write
 
 on:
